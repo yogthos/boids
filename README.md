@@ -2,6 +2,11 @@
 
 [demo](https://rawgit.com/yogthos/boids/master/demo/index.html)
 
+### Requirements
+
+* [JDK](https://www.azul.com/downloads/zulu/)
+* [Leiningen](https://leiningen.org/)
+
 ### Development mode
 
 To start the Figwheel compiler, navigate to the project folder and run the following command in the terminal:
