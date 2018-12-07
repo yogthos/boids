@@ -1,7 +1,5 @@
 ## Boids simulation with Quil
 
-[demo](https://cdn.jsdelivr.net/gh/yogthos/boids/demo/index.html)
-
 ### Requirements
 
 * [JDK](https://www.azul.com/downloads/zulu/)
