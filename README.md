@@ -1,6 +1,6 @@
 ## Boids simulation with Quil
 
-[demo](https://rawgit.com/yogthos/boids/master/demo/index.html)
+[demo](https://cdn.jsdelivr.net/gh/yogthos/boids/demo/index.html)
 
 ### Requirements
 
