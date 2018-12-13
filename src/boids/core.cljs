@@ -113,7 +113,7 @@
       (update boid :position #(map wrap % [width height])))
     boids))
 
-(defn move-boids [boids state]
+(defn move-boids [{:keys [boids] :as state}]
   (->> boids
        (map (partial boid-direction state))
        (map move-boid)
@@ -149,16 +149,21 @@
      :align?    true}))
 
 (defn update-state [state]
-  (-> (merge state @config)
-      (update :boids move-boids state)))
+  (let [updated-state (move-boids state)]
+    (-> (merge state @config)
+        (assoc :boids updated-state)
+        (update :history #(take 5 (cons updated-state %))))))
 
 (defn draw-boid [{[x y] :position direction :direction [r g b] :color}]
   (q/stroke r g b)
   (let [[dx dy] (angle->heading direction)]
-    (q/line x y (+ x (* 10 dx)) (+ y (* 10 dy)))))
+    (q/line x y (+ x (* 5 dx)) (+ y (* 5 dy)))))
 
-(defn draw [{:keys [boids]}]
+(defn draw [{:keys [boids history]}]
   (q/background 255)
+  (doseq [boids history]
+    (doseq [boid boids]
+      (draw-boid boid)))
   (doseq [boid boids]
     (draw-boid boid)))
 
